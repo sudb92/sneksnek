@@ -1,0 +1,17 @@
+CC      = g++
+CFLAGS  = -std=c++11
+LDFLAGS = -lsfml-graphics -lsfml-window -lsfml-system
+
+all: testing
+
+testing: testing.o
+	$(CC) -v -pg -o $@ $^ $(LDFLAGS)
+
+testing.o: testing.cpp
+	$(CC) -v -pg -c $(CFLAGS) $<
+
+clean:
+	rm testing.o
+
+cleanest: clean
+	rm testing
